@@ -1,0 +1,11 @@
+Draggable elements:
+- make big windows for draggable
+- change draggable elements to look like refrence
+
+Taskbar:
+- make z index ++ when clicking task bar element
+- drag and move task bar elements
+- clicking on start does something like credits
+- start/item container cant move
+- dragging taskbar items with smooth animations
+- real time/day
