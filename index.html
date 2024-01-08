@@ -11,11 +11,62 @@
     <link rel="icon" href="images/icon.png">
 </head>
 <body>
-    <div class="draggable-container">
-        <div class="draggable">Task Manager         -ox</div>
-        <div class="draggable">Webcam               -ox</div>
-        <div class="draggable">JINE                 -ox</div>
+    <!-- Desktop -->
+    <div class="draggable-container"> 
+        <!-- Webcam: Should never close -->
+        <div class="draggable">
+            <div class="window-top window-header">
+                <div class="window-tab">
+                    <div class="window-icon"><img src="images\purple-square.png" alt="" class="purple-square"></div>
+                    <div class="window-name">Webcam</div>
+                </div>
+                <div class="window-button">
+                    <div class="window-minimize">-</div>
+                    <div class="window-maximize">o</div>
+                    <div class="window-close">x</div>
+                </div>
+            </div>
+            <div class="window-bottom">
+                <div class="window-content">Content</div>
+            </div>
+        </div>
+        <!-- Task Manager -->
+        <div class="draggable">
+            <div class="window-top window-header">
+                <div class="window-tab">
+                    <div class="window-icon"><img src="images\purple-square.png" alt="" class="purple-square"></div>
+                    <div class="window-name">Task Manager</div>
+                </div>
+                <div class="window-button">
+                    <div class="window-minimize">-</div>
+                    <div class="window-maximize">o</div>
+                    <div class="window-close">x</div>
+                </div>
+            </div>
+            <div class="window-bottom">
+                <div class="window-content">Content</div>
+            </div>
+        </div>
+        <!-- JINE -->
+        <div class="draggable">
+            <div class="window-top window-header">
+                <div class="window-tab">
+                    <div class="window-icon"><img src="images\purple-square.png" alt="" class="purple-square"></div>
+                    <div class="window-name">JINE</div>
+                </div>
+                <div class="window-button">
+                    <div class="window-minimize">-</div>
+                    <div class="window-maximize">o</div>
+                    <div class="window-close">x</div>
+                </div>
+            </div>
+            <div class="window-bottom">
+                <div class="window-content">Content</div>
+            </div>
+        </div>
     </div>
+    
+    <!-- Task Bar -->
     <div class="taskbar-container">
         <!-- Start Button -->
         <div class="start-container"> 
@@ -24,28 +75,35 @@
         </div>
         <!-- Icon Bar -->
         <div class="icon-container">
-            temp icon container
+            | temp icon container |
         </div>
         <!-- Task Bar Buttons -->
         <div class="button-container">
-            <div class="task-manager">
+            <div class="webcam">
                 <img src="images\purple-square.png" alt="">
-                Task Manager</div>
+                Webcam
+            </div>
         </div>
 
         <div class="button-container">
-            <div class="webcam">
+            <div class="task-manager">
                 <img src="images\purple-square.png" alt="">
-                Webcam</div>
+                Task Manager
+            </div>
         </div>
 
         <div class="button-container">
             <div class="jine">
                 <img src="images\purple-square.png" alt="">
-                JINE</div>
+                JINE
+            </div>
         </div>
+        <!-- System Clock -->
+        <div id="system-clock"></div>
     </div>
     
-    <script src="script.js"></script>
+    <script src="js_scripts\drag.js"></script>
+    <script src="js_scripts\taskbutton.js"></script>
+    <script src="js_scripts\clock.js"></script>
 </body>
 </html>

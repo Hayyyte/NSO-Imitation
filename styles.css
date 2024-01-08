@@ -6,8 +6,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Press Start 2P', monospace;
-    font-size: 11px;
+    font-size: 0.6vw;
     font-weight: 100;
+    color: rgb(76, 35, 201);
+    border-color: rgb(76, 35, 201);
     user-select: none;
 }
 /* Background */
@@ -20,25 +22,37 @@ body {
 }
 /* Images: Might need to change later for different images */
 img {
-    width: 20px;
-    height: 20px;
+    width: 1vw;
+    height: 1vw;
+    pointer-events: none;
+}
+
+.purple-square {
+    width: 0.6vw;
+    height: 0.6vw;
+    pointer-events: none;
 }
 
 /* Draggable Content */
-.draggable-container {
+.draggable-container { /* Confine children inside container*/
+    width: 100vw;
+    height: 95vh;
     position: relative;
 }
 
-.draggable {
+.draggable { /* Draggable element */
     position: absolute;
-    cursor: move;
-    background-color: #4CAF50;
+    background-color: rgb(231, 216, 255);
     color: #fff;
+    height:255px;
     width: 300px;
-    padding: 10px;
-    border: 2px solid black;
-    border-radius: 5px;
-    white-space: pre-wrap;
+    padding: 0.4vh;
+    border: 2px solid rgb(76, 35, 201);
+    z-index: 1;
+}
+
+.focused {
+    background-color: rgb(156, 232, 246);
 }
 
 .draggable:nth-child(1) {
@@ -56,14 +70,88 @@ img {
     left: 280px;
 }
 
+.window-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 10%;
+    border: inherit;
+    background-color: rgb(238, 207, 238);
+    padding: 5px;
+    margin-bottom: 0.5vh;
+    cursor: grab;
+}
+
+.window-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.25vw;
+}
+
+.window-name {
+    flex-grow: 1;
+}
+
+.window-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.window-button div {
+    cursor: pointer;
+}
+
+.window-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+    border: inherit;
+    background-color: rgb(238, 207, 238);
+    padding: 5px;
+}
+
+/* .window-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(238, 207, 238);
+    padding: 5px;
+} */
+
+/* <div class="draggable">
+            <div class="window-top">
+                <div class="window-text">Task Manager</div>
+                <div class="window-button">-ox</div>
+            </div>
+            <div class="window-bottom">
+                <div class="window-content"></div>
+            </div>
+        </div> */
+
+/* .window {
+    position: absolute;
+    background-color: black;
+    top: 10%;
+    left: 2.5%;
+    height: 85%;
+    width: 95%;
+    padding: 10px;
+} */
 /* Taskbar */
 .taskbar-container {
     position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     bottom: 0;
     left: 0;
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    height: 5vh;
     background-color: rgb(245, 225, 250);
     border-top: 2px solid white;
     padding: 10px;
@@ -78,9 +166,10 @@ img {
     width: 150px;
     margin: 5px;
     padding: 5px;
-    border: 3px outset whitesmoke;
+    border-left: 3px solid transparent;
     cursor: pointer;
     gap: 25px;
+    transition: padding 0.025s linear;
 }
 
 .start-img {
@@ -90,14 +179,14 @@ img {
 }
 
 .start-container:hover {
-    border: 3px inset whitesmoke;
+    border: 3px outset whitesmoke;
 }
 
-/* todo
-inactive = border
-hover = white
-clickdown = darker */
-
+.start-container:active {
+    background-color: rgb(225, 205, 230);
+    border: 3px inset whitesmoke;
+    padding: 8px 3px 3px 8px;
+}
 /* Task Bar Buttons */
 .button-container {
     display: flex;
@@ -112,7 +201,7 @@ clickdown = darker */
     width: 300px;
     margin: 5px;
     padding: 10px;
-    border: 3px outset rgb(80, 35, 205);
+    border: 3px solid transparent;
     gap: 10px;
     cursor: pointer;
 }
@@ -124,5 +213,17 @@ clickdown = darker */
 }
 
 .button-container div:hover {
+    border: 3px outset rgb(80, 35, 205);
+}
+
+.button-container div:active {
+    background-color: rgb(225, 205, 230);
     border: 3px inset rgb(80, 35, 205);
+    padding: 11px 9px 9px 11px;
+}
+
+#system-clock {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
